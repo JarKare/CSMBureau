@@ -20,7 +20,8 @@ export default defineConfig({
     host: '0.0.0.0',
     proxy: {
       '/api': {
-        target: 'http://www.jianking.vip:8000',
+        target: 'https://www.jianking.vip',
+        // target: 'http://158.178.230.26',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '/api')
       }

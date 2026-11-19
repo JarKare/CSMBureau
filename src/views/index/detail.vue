@@ -1,28 +1,15 @@
 <template>
-  <el-row type="flex" justify="center" style="margin-top: 20px">
-    <el-col :xl="{span: 16}" :lg="{span: 18}" :md="{span: 20}" :sm="{span: 22}" :xs="{span: 24}">
-      <el-card>
-        <el-skeleton :loading="loading" animated :rows="12">
-          <template #template>
-            <el-skeleton-item variant="h1" style="width: 50%;" />
-            <el-skeleton-item variant="text" style="margin: 20px 0;" />
-            <el-skeleton-item variant="text" style="min-height: 600px;" />
-          </template>
-          <template #default>
-            <h1 class="title">{{ blogDetail.title }}</h1>
-            <div class="time">
-              <div>{{ blogDetail.createTime }}</div>
-              <div class="item-view">
-                <el-icon><View /></el-icon>
-                <p class="view-num">{{ blogDetail.clickViews + 1 }}</p>
-              </div>
-            </div>
-            <div v-html="blogDetail.htmlRender" class="markdown-body" style="min-height: 600px;"></div>
-          </template>
-        </el-skeleton>
-      </el-card>
-    </el-col>
-  </el-row>
+  <main class="public-page reader site-panel">
+    <el-skeleton :loading="loading" animated :rows="12">
+      <article>
+        <h1>{{ blogDetail.title }}</h1>
+        <div class="site-meta">
+          <time>{{ blogDetail.createTime }}</time><el-icon><View /></el-icon>{{ blogDetail.clickViews + 1 }}
+        </div>
+        <div v-html="blogDetail.htmlRender" class="markdown-body"></div>
+      </article>
+    </el-skeleton>
+  </main>
 </template>
 
 <script setup>
@@ -64,30 +51,22 @@ const loadDetail = async () => {
 }
 </script>
 
-<style lang="scss" scoped>
-.title {
-  font-size: 36px;
-}
-
-.time {
-  display: flex;
-  align-items: center;
-  margin: 20px 10px;
-}
-.item-view {
-  display: flex;
-  align-items: center;
-  margin-left: 16px;
-  .view-num {
-    color: #666666;
-    font-size: 15px;
-    margin-left: 2px;
-  }
-}
-
-.markdown-body img {
-  border: 1px solid #e2e2e2;
-  padding: 4px;
-  border-radius: 4px;
-}
+<style scoped>
+.reader { width: min(1080px, calc(100% - 48px)); box-sizing: border-box; margin: 30px auto 48px; padding: clamp(24px, 4.6vw, 66px) clamp(20px, 5vw, 70px); }
+.reader article { max-width: 820px; margin: auto; min-width: 0; }
+.reader h1 { font: 700 clamp(29px, 3.1vw, 44px)/1.4 var(--site-display); overflow-wrap: anywhere; }
+.site-meta { margin: 18px 0 30px; padding-bottom: 27px; border-bottom: 1px solid var(--site-rule); }
+.reader .markdown-body { min-height: 360px; color: var(--site-soft); background: transparent; font-size: clamp(16px, 1.4vw, 18px); line-height: 1.85; overflow-wrap: anywhere; }
+.markdown-body :deep(h2), .markdown-body :deep(h3) { font-family: var(--site-display); color: var(--site-ink); }
+.markdown-body :deep(ul li) { list-style: disc; }
+.markdown-body :deep(ol li) { list-style: decimal; }
+.markdown-body :deep(img) { max-width: 100%; height: auto; }
+.markdown-body :deep(pre) { padding: 20px; overflow-x: auto; background: var(--site-code); color: var(--site-code-ink); border-radius: var(--site-radius); }
+.markdown-body :deep(code) { color: var(--site-accent); background: var(--site-wash); }
+.reader .markdown-body :deep(pre code) { background: transparent; color: inherit; }
+.markdown-body :deep(.hljs-keyword) { color: #efbf98; }
+.markdown-body :deep(.hljs-string) { color: #b9d8ae; }
+html.dark .markdown-body :deep(.hljs-keyword) { color: #c3b7ff; }
+html.dark .markdown-body :deep(.hljs-string) { color: #8be2d5; }
+@media (max-width: 600px) { .reader { width: calc(100% - 24px); margin-block: 16px 28px; } }
 </style>

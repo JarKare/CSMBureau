@@ -6,10 +6,11 @@ import router from './router'
 import { useCounterStore } from './stores/counter'
 import request from './utils/request'
 import ElementPlus from 'element-plus'
-import './assets/css/style.css'
 import './assets/css/animate.css'
 import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
+import './assets/css/style.css'
+import './assets/css/site-theme.css'
 
 const app = createApp(App)
 

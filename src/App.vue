@@ -2,17 +2,27 @@
   <header-guide />
   <router-view v-slot="{ Component, route }">
     <keep-alive include="index,about,admin">
-      <component :is="Component" :key="route.path" :style="getHeight" />
+      <component :is="Component" :key="route.path" />
     </keep-alive>
   </router-view>
   <footer-guide />
 </template>
 
 <script setup>
-import { inject, onBeforeMount, onMounted, computed } from 'vue'
+import { inject, onBeforeMount, provide } from 'vue'
+import { useColorMode } from '@vueuse/core'
 import { RouterView } from 'vue-router'
 import HeaderGuide from '@/components/HeaderGuide/index.vue'
 import FooterGuide from '@/components/FooterGuide/index.vue'
+
+// Share one resolved preference with navigation, artwork and Markdown.
+const themeMode = useColorMode({
+  onChanged(mode, applyMode) {
+    applyMode(mode)
+    document.documentElement.dataset.theme = mode
+  }
+})
+provide('themeMode', themeMode)
 
 const store = inject('$store')
 const request = inject('$request')
@@ -33,17 +43,6 @@ onBeforeMount(() => {
   })
   loginVerify()
 })
-
-onMounted(() => {
-  store.setHeight(document.documentElement['clientHeight'])
-  window.onresize = () => {
-    if (document.documentElement['clientHeight'] > store.clientHeight) {
-      store.setHeight(document.documentElement['clientHeight'])
-    }
-  }
-})
-
-const getHeight = computed(() => `min-height: ${(store.clientHeight - 220)}px;`)
 
 const loginVerify = async () => {
   try {

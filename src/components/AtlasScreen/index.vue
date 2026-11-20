@@ -53,7 +53,7 @@ html.dark .atlas-screen { background: #111c32 url('@/assets/images/night.jpg') c
 .night-motion, .atlas-screen::before { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; object-fit: cover; }
 html.dark .atlas-screen::before { content: ''; z-index: -1; background: rgba(8,18,40,.46); }
 .saying { text-align: center; color: var(--site-ink); margin-top: -30px; }
-.saying h1 { max-width: 13em; text-wrap: balance; font: 700 clamp(24px, 3.1vw, 44px)/1.65 var(--site-display); letter-spacing: .055em; }
+.saying h1 { max-width: 16em; text-wrap: balance; font: 700 clamp(24px, 3.1vw, 44px)/1.65 var(--site-display); letter-spacing: .055em; }
 .saying p { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 14px; font: 500 16px var(--site-display); }
 .saying p::before, .saying p::after { content: ''; width: 32px; height: 1px; background: currentColor; opacity: .55; }
 html.dark .saying p { color: var(--site-accent); }

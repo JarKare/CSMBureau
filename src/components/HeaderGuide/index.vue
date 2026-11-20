@@ -12,7 +12,7 @@
         <router-link to="/about">青玉案</router-link>
         <template v-if="store.hasLogin">
           <router-link to="/admin">临江仙</router-link>
-          <el-avatar :size="32" :src="headImg" alt="JamyKing 头像" />
+          <el-avatar :size="32" :src="headImg" alt="JarKare 头像" />
         </template>
         <router-link v-else to="/login">如梦令</router-link>
       </nav>

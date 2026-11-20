@@ -24,8 +24,8 @@
         </div>
       </section>
       <aside class="site-panel">
-        <img class="portrait" :src="headImg" alt="JamyKing 头像">
-        <h3>JamyKing</h3>
+        <img class="portrait" :src="headImg" alt="JarKare 头像">
+        <h3>JarKare</h3>
         <h4>文章分类</h4>
         <div class="tag-group">
           <button :aria-pressed="!pageInfo.categoryName" @click="tagSelected('')">ALL</button>

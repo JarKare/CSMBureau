@@ -2,7 +2,7 @@
   <main class="public-page">
     <atlas-screen :saying-show="false">
       <section class="login-form site-panel">
-        <img class="head" :src="headImg" alt="JamyKing 头像">
+        <img class="head" :src="headImg" alt="JarKare 头像">
         <h1>登录</h1>
         <el-form ref="loginDom" :model="loginForm" :rules="rules" label-width="72px" @submit.prevent="toLogin">
           <el-form-item label="用户名" prop="username">

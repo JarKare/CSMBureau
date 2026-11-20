@@ -1,11 +1,11 @@
 <template>
   <footer>
     <nav aria-label="外部链接">
-      <a href="https://github.com/JamyKing"><i class="iconfont icon-github"></i> GitHub</a>
+      <a href="https://github.com/JarKare"><i class="iconfont icon-github"></i> GitHub</a>
       <a href="http://demo.jianking.vip"><i class="iconfont icon-demo"></i> Demo</a>
       <a href="https://ext.dcloud.net.cn/publisher?id=187555"><i class="iconfont icon-uniapp"></i> uni-app</a>
     </nav>
-    <p>Copyright © {{ year }} JamyKing All rights Reserved.　<a rel="nofollow" href="https://beian.miit.gov.cn" target="_blank">浙ICP备20019063号-1</a></p>
+    <p>Copyright © {{ year }} JarKare All rights Reserved.　<a rel="nofollow" href="https://beian.miit.gov.cn" target="_blank">浙ICP备20019063号-1</a></p>
     <a class="record" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802010934" target="_blank">
       <img :src="emblemImg" alt="" width="16" height="16">浙公网安备 33010802010934号
     </a>

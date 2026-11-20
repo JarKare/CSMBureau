@@ -42,6 +42,8 @@
       </el-row>
       <el-row>
         <mavon-editor
+          class="creation-editor"
+          editor-background="var(--creation-input-bg, #fff)"
           ref="editorRef"
           v-model="dataForm.content"
           @change="change"
@@ -200,5 +202,27 @@ const submit = () => {
 </script>
 
 <style scoped>
+html.dark .creation-editor {
+  --creation-input-bg: var(--site-card);
+}
 
+html.dark .creation-editor :deep(.v-note-edit) {
+  background-color: var(--creation-input-bg);
+}
+
+html.dark .creation-editor :deep(.auto-textarea-input) {
+  background-color: transparent;
+  color: var(--site-ink);
+  caret-color: var(--site-accent);
+}
+
+html.dark .creation-editor :deep(.auto-textarea-input::placeholder) {
+  color: var(--site-muted);
+  opacity: 1;
+}
+
+html.dark .creation-editor :deep(.auto-textarea-input::selection) {
+  background-color: var(--site-accent);
+  color: var(--site-bg);
+}
 </style>

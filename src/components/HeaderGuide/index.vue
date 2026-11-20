@@ -45,6 +45,7 @@ nav :is(.current, .router-link-active)::after { content: ''; position: absolute;
   .navbar { padding: 8px 14px; min-height: 44px; gap: 8px; flex-wrap: wrap; }
   .brand { font-size: 19px; letter-spacing: 0; gap: 5px; }
   .brand-mark { width: 23px; height: 26px; font-size: 16px; }
+  html.dark .brand-mark { font-size: 24px; line-height: 1; }
   nav { gap: 11px; flex-wrap: wrap; }
   nav a { font-size: 14px; padding-block: 12px; letter-spacing: 0; }
 }

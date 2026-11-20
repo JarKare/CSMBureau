@@ -67,7 +67,7 @@ const request = inject('$request')
 const route = useRoute()
 const router = useRouter()
 
-const id = ref(0)
+const id = route.query.id || 0
 const dataForm = ref({
   title: '',
   state: 1,
@@ -99,8 +99,7 @@ const formRef = useTemplateRef('formRef')
 const editorRef = useTemplateRef('editorRef')
 
 onBeforeMount(() => {
-  id.value = route.query.id || 0
-  if (id.value) {
+  if (id) {
     editDetail()
   }
 })
@@ -171,9 +170,9 @@ const submit = () => {
     if (valid) {
       try {
         const {code} = await request({
-          url: `/api/blog/${id.value ? 'update' : 'new'}`,
+          url: `/api/blog/${id ? 'update' : 'new'}`,
           method: 'POST',
-          data: { id, ...dataForm.value }
+          data: { ...dataForm.value, id }
         })
         if (code === 0) {
           ElMessage({

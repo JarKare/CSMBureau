@@ -36,7 +36,7 @@ const mode = inject('themeMode')
 .navbar { max-width: 1120px; min-height: 63px; margin: auto; padding-inline: 24px; box-sizing: content-box; display: flex; align-items: center; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--site-ink); font: 700 26px var(--site-display); letter-spacing: .1em; white-space: nowrap; }
 .brand-mark { display: grid; place-items: center; width: 30px; height: 32px; background: var(--site-accent); color: #fffae9; font: 700 21px var(--site-display); outline: 1px solid #edc6a9; outline-offset: -3px; }
-html.dark .brand-mark { background: transparent; color: var(--site-accent); outline: none; font: 35px Georgia, serif; }
+html.dark .brand-mark { background: transparent; color: var(--site-accent); outline: none; font: 35px/32px Georgia, serif; }
 nav { margin-left: auto; display: flex; align-items: center; gap: clamp(18px, 4vw, 54px); }
 nav a { position: relative; padding-block: 19px; white-space: nowrap; font: 600 18px var(--site-display); letter-spacing: .08em; color: var(--site-soft); }
 nav :is(.current, .router-link-active, a:hover) { color: var(--site-accent); }
